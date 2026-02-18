@@ -45,6 +45,10 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
   -webkit-tap-highlight-color: transparent;
 }
 .horse-btn:active { transform: scale(0.98); }
+.horse-btn.selected {
+  border-color: #f59e0b; background: #fffbeb;
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.2);
+}
 .horse-btn .count { font-size: 10px; color: #94a3b8; font-weight: 600; margin-left: auto; }
 .horse-btn .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .rating-row {
@@ -66,7 +70,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
 .race-card { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
 .race-item {
   padding: 8px 10px; border-radius: 10px; border: 1px solid #e2e8f0;
-  background: #fff; font-size: 10px;
+  background: #fff; font-size: 10px; cursor: pointer;
 }
 .race-item.ideal { background: #ecfdf5; border-color: #a7f3d0; }
 .race-item.highlighted { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.3); }
@@ -116,6 +120,7 @@ const TY = 11.3;
 const COLORS = { same_dist:'#dc2626', diff_dist:'#2563eb', diff_surface:'#94a3b8', target:'#d97706' };
 const X_MIN = 7.0, X_MAX = 12.0;
 const Y_MIN = 0, Y_MAX = 22;
+let selectedHorses = new Set();
 const canvas = document.getElementById('chart');
 const ctx = canvas.getContext('2d');
 const tooltipEl = document.getElementById('tooltip');
@@ -151,12 +156,14 @@ function draw() {
   ctx.beginPath();ctx.moveTo(50,toCanvasY(TY));ctx.lineTo(W-50,toCanvasY(TY));ctx.stroke();
   ctx.setLineDash([]);
   HORSES.forEach((h,hi)=>{
+    const isSel=selectedHorses.has(h.name), dimmed=selectedHorses.size>0&&!isSel;
+    const alpha=dimmed?0.08:(isSel?1.0:0.7);
     h.races.forEach(r=>{
-      const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),color=COLORS[r.cat],sz=10;
-      ctx.globalAlpha=0.7;
-      if(r.good){ ctx.beginPath();ctx.arc(px,py,sz,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke(); }
-      else{ ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(px-sz,py-sz);ctx.lineTo(px+sz,py+sz);ctx.stroke();ctx.beginPath();ctx.moveTo(px+sz,py-sz);ctx.lineTo(px-sz,py+sz);ctx.stroke(); }
-      ctx.fillStyle=color;ctx.font='bold 8px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.strokeText(r.result||'?',px,py+1);ctx.fillText(r.result||'?',px,py+1);
+      const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),color=COLORS[r.cat],sz=isSel?15:10;
+      ctx.globalAlpha=alpha;
+      if(r.good){ ctx.beginPath();ctx.arc(px,py,sz,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=isSel?3.5:2;ctx.stroke(); }
+      else{ ctx.strokeStyle=color;ctx.lineWidth=isSel?3.5:2;ctx.beginPath();ctx.moveTo(px-sz,py-sz);ctx.lineTo(px+sz,py+sz);ctx.stroke();ctx.beginPath();ctx.moveTo(px+sz,py-sz);ctx.lineTo(px-sz,py+sz);ctx.stroke(); }
+      if(!dimmed){ ctx.fillStyle=color;ctx.font=`bold ${isSel?11:8}px Arial`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.strokeText(r.result||'?',px,py+1);ctx.fillText(r.result||'?',px,py+1); }
     });
   });
   ctx.globalAlpha=1;
@@ -166,7 +173,7 @@ function draw() {
       const rank=ratings[h.name];const rc=RANK_COLORS[rank];
       h.races.forEach(r=>{
         const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture);
-        ctx.globalAlpha=1;
+        ctx.globalAlpha=selectedHorses.size>0&&!selectedHorses.has(h.name)?0.15:1;
         ctx.fillStyle=rc;ctx.font='bold 9px Arial';ctx.textAlign='left';
         ctx.fillText(rank,px+10,py-8);
       });
@@ -194,7 +201,9 @@ function buildPanel(){
   panel.innerHTML=html;
   HORSES.forEach((h,i)=>{document.getElementById('btn-'+i).addEventListener('click',()=>{
     const detail=document.getElementById('detail-'+i);
-    detail.classList.toggle('show');
+    if(selectedHorses.has(h.name)){selectedHorses.delete(h.name);detail.classList.remove('show');document.getElementById('btn-'+i).classList.remove('selected');}
+    else{selectedHorses.add(h.name);detail.classList.add('show');document.getElementById('btn-'+i).classList.add('selected');}
+    draw();
   });});
   document.querySelectorAll('.rating-btn').forEach(btn=>{
     btn.addEventListener('click',(e)=>{
@@ -223,7 +232,7 @@ function updateRatings(){
 const isMobile='ontouchstart' in window;
 function getPointAt(cx,cy){
   let closest=null,minDist=isMobile?35:20;
-  HORSES.forEach(h=>{h.races.forEach(r=>{const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),d=Math.sqrt((cx-px)**2+(cy-py)**2);if(d<minDist){minDist=d;closest={...r,horse:h.name};}});});
+  HORSES.forEach(h=>{if(selectedHorses.size>0&&!selectedHorses.has(h.name))return;h.races.forEach(r=>{const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),d=Math.sqrt((cx-px)**2+(cy-py)**2);if(d<minDist){minDist=d;closest={...r,horse:h.name};}});});
   return closest;
 }
 canvas.addEventListener('mousemove',(e)=>{const rect=canvas.getBoundingClientRect();const x=e.clientX-rect.left,y=e.clientY-rect.top;const pt=getPointAt(x,y);if(pt){tooltipEl.innerHTML=`<b>${pt.horse}</b><br>${pt.date} ${pt.venue} ${pt.surface}${pt.distance}m<br>${pt.race_name}<br><b>${pt.result}着</b><br>CV: ${pt.cushion} / 含水率: ${pt.moisture}%`;tooltipEl.style.left=(e.clientX+15)+'px';tooltipEl.style.top=(e.clientY-10)+'px';tooltipEl.classList.add('show');}else{tooltipEl.classList.remove('show');}});

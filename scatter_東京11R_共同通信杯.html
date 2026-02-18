@@ -207,7 +207,7 @@ function buildPanel(){
     const detail=document.getElementById('detail-'+i);
     if(selectedHorses.has(h.name)){selectedHorses.delete(h.name);detail.classList.remove('show');document.getElementById('btn-'+i).classList.remove('selected');}
     else{selectedHorses.add(h.name);detail.classList.add('show');document.getElementById('btn-'+i).classList.add('selected');}
-    draw();
+    requestAnimationFrame(()=>{draw();});
   });});
   document.querySelectorAll('.rating-btn').forEach(btn=>{
     btn.addEventListener('click',(e)=>{
@@ -221,11 +221,12 @@ function buildPanel(){
     });
   });
   document.querySelectorAll('.race-item').forEach(el=>{
-    el.addEventListener('click',()=>{
+    el.addEventListener('click',(e)=>{
+      e.stopPropagation();
       el.classList.toggle('highlighted');
       const key=el.dataset.horse+'-'+el.dataset.ri;
       if(highlightedPoints.has(key))highlightedPoints.delete(key);else highlightedPoints.add(key);
-      draw();
+      requestAnimationFrame(()=>{draw();});
     });
   });
 }

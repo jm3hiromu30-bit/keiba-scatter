@@ -121,6 +121,7 @@ const COLORS = { same_dist:'#dc2626', diff_dist:'#2563eb', diff_surface:'#94a3b8
 const X_MIN = 7.0, X_MAX = 12.0;
 const Y_MIN = 0, Y_MAX = 22;
 let selectedHorses = new Set();
+let highlightedPoints = new Set();
 const canvas = document.getElementById('chart');
 const ctx = canvas.getContext('2d');
 const tooltipEl = document.getElementById('tooltip');
@@ -180,6 +181,15 @@ function draw() {
     }
   });
   ctx.globalAlpha=1;
+  highlightedPoints.forEach(key=>{
+    const [hi,ri]=key.split('-').map(Number);
+    const r=HORSES[hi].races[ri];
+    if(r){const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture);
+      ctx.strokeStyle='#f59e0b';ctx.lineWidth=3;ctx.beginPath();ctx.arc(px,py,18,0,Math.PI*2);ctx.stroke();
+      ctx.strokeStyle='rgba(245,158,11,0.3)';ctx.lineWidth=6;ctx.beginPath();ctx.arc(px,py,22,0,Math.PI*2);ctx.stroke();
+    }
+  });
+  ctx.globalAlpha=1;
   const tx=toCanvasX(TX),ty=toCanvasY(TY);
   ctx.fillStyle=COLORS.target;ctx.font='bold 22px Arial';ctx.textAlign='center';ctx.textBaseline='middle';
   ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.strokeText('★',tx,ty);ctx.fillText('★',tx,ty);
@@ -217,7 +227,12 @@ function buildPanel(){
     });
   });
   document.querySelectorAll('.race-item').forEach(el=>{
-    el.addEventListener('click',()=>{el.classList.toggle('highlighted');});
+    el.addEventListener('click',()=>{
+      el.classList.toggle('highlighted');
+      const key=el.dataset.horse+'-'+el.dataset.ri;
+      if(highlightedPoints.has(key))highlightedPoints.delete(key);else highlightedPoints.add(key);
+      draw();
+    });
   });
 }
 function updateRatings(){

@@ -159,12 +159,15 @@ function draw() {
   HORSES.forEach((h,hi)=>{
     const isSel=selectedHorses.has(h.name), dimmed=selectedHorses.size>0&&!isSel;
     const alpha=dimmed?0.08:(isSel?1.0:0.7);
-    h.races.forEach(r=>{
-      const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),color=COLORS[r.cat],sz=isSel?15:10;
-      ctx.globalAlpha=alpha;
-      if(r.good){ ctx.beginPath();ctx.arc(px,py,sz,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=isSel?3.5:2;ctx.stroke(); }
-      else{ ctx.strokeStyle=color;ctx.lineWidth=isSel?3.5:2;ctx.beginPath();ctx.moveTo(px-sz,py-sz);ctx.lineTo(px+sz,py+sz);ctx.stroke();ctx.beginPath();ctx.moveTo(px+sz,py-sz);ctx.lineTo(px-sz,py+sz);ctx.stroke(); }
-      if(!dimmed){ ctx.fillStyle=color;ctx.font=`bold ${isSel?11:8}px Arial`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.strokeText(r.result||'?',px,py+1);ctx.fillText(r.result||'?',px,py+1); }
+    h.races.forEach((r,ri)=>{
+      const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture),color=COLORS[r.cat];
+      const isHL=highlightedPoints.has(hi+'-'+ri);
+      const sz=isHL?18:(isSel?15:10);
+      ctx.globalAlpha=isHL?1.0:alpha;
+      if(isHL){ctx.strokeStyle='#f59e0b';ctx.lineWidth=5;ctx.beginPath();ctx.arc(px,py,sz+6,0,Math.PI*2);ctx.stroke();}
+      if(r.good){ ctx.beginPath();ctx.arc(px,py,sz,0,Math.PI*2);ctx.fillStyle=isHL?'#fffbeb':'#fff';ctx.fill();ctx.strokeStyle=isHL?'#f59e0b':color;ctx.lineWidth=isHL?4:(isSel?3.5:2);ctx.stroke(); }
+      else{ ctx.strokeStyle=isHL?'#f59e0b':color;ctx.lineWidth=isHL?4:(isSel?3.5:2);ctx.beginPath();ctx.moveTo(px-sz,py-sz);ctx.lineTo(px+sz,py+sz);ctx.stroke();ctx.beginPath();ctx.moveTo(px+sz,py-sz);ctx.lineTo(px-sz,py+sz);ctx.stroke(); }
+      if(!dimmed||isHL){ ctx.fillStyle=isHL?'#f59e0b':color;ctx.font=`bold ${isHL?13:(isSel?11:8)}px Arial`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.strokeText(r.result||'?',px,py+1);ctx.fillText(r.result||'?',px,py+1); }
     });
   });
   ctx.globalAlpha=1;
@@ -178,15 +181,6 @@ function draw() {
         ctx.fillStyle=rc;ctx.font='bold 9px Arial';ctx.textAlign='left';
         ctx.fillText(rank,px+10,py-8);
       });
-    }
-  });
-  ctx.globalAlpha=1;
-  highlightedPoints.forEach(key=>{
-    const [hi,ri]=key.split('-').map(Number);
-    const r=HORSES[hi].races[ri];
-    if(r){const px=toCanvasX(r.cushion),py=toCanvasY(r.moisture);
-      ctx.strokeStyle='#f59e0b';ctx.lineWidth=3;ctx.beginPath();ctx.arc(px,py,18,0,Math.PI*2);ctx.stroke();
-      ctx.strokeStyle='rgba(245,158,11,0.3)';ctx.lineWidth=6;ctx.beginPath();ctx.arc(px,py,22,0,Math.PI*2);ctx.stroke();
     }
   });
   ctx.globalAlpha=1;

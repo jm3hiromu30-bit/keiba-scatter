@@ -113,8 +113,639 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
   <span><span class="dot" style="background:#94a3b8"></span> 芝レース</span>
   <span>○ 3着以内 / × 4着以下</span>
 </div>
+<!-- AI読み取り用 構造化データ（Gemini/ChatGPT対応） -->
+<script type="application/json" id="race-data">
+{
+  "レース情報": {
+    "開催日": "03/01",
+    "競馬場": "中山",
+    "レース番号": "3R",
+    "レース名": "",
+    "馬場": "ダート",
+    "距離": "1200m",
+    "当日クッション値": 9.5,
+    "当日含水率": "11.0%"
+  },
+  "出走馬": [
+    {
+      "馬名": "ジャンプストリート",
+      "過去走数": 3,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/18",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 9,
+          "クッション値": 10.5,
+          "含水率": "1.4%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/26",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳未勝利",
+          "着順": 8,
+          "クッション値": 8.6,
+          "含水率": "18.4%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/11",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳新馬",
+          "着順": 12,
+          "クッション値": 9.7,
+          "含水率": "13.5%",
+          "近似条件": "○",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ニシノバリキング",
+      "過去走数": 1,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2025/12/06",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 16,
+          "クッション値": 10.1,
+          "含水率": "1.1%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "フォーアライター",
+      "過去走数": 1,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2025/12/14",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳新馬",
+          "着順": 12,
+          "クッション値": 9.9,
+          "含水率": "11.6%",
+          "近似条件": "○",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ヘヴンズドライブ",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2025/12/13",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳未勝利",
+          "着順": 6,
+          "クッション値": 10.3,
+          "含水率": "1.2%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/12/07",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 11,
+          "クッション値": 10.4,
+          "含水率": "10.5%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ピルスナー",
+      "過去走数": 4,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2025/11/30",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳未勝利",
+          "着順": 11,
+          "クッション値": 9.3,
+          "含水率": "14.9%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/11/23",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳未勝利",
+          "着順": 11,
+          "クッション値": 9.2,
+          "含水率": "14.4%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/19",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1400m",
+          "レース名": "2歳未勝利",
+          "着順": 12,
+          "クッション値": 9.6,
+          "含水率": "13.4%",
+          "近似条件": "○",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/05",
+          "競馬場": "京都",
+          "馬場": "芝",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 9,
+          "クッション値": 10.0,
+          "含水率": "10.3%",
+          "近似条件": "○",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "カンノンミッキー",
+      "過去走数": 1,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/12",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳新馬",
+          "着順": 4,
+          "クッション値": 10.3,
+          "含水率": "2.2%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ネオアカジョウ",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/18",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 11,
+          "クッション値": 10.5,
+          "含水率": "1.4%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/11",
+          "競馬場": "東京",
+          "馬場": "ダ",
+          "距離": "1400m",
+          "レース名": "2歳新馬",
+          "着順": 16,
+          "クッション値": 9.7,
+          "含水率": "1.8%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ヌクレオチド",
+      "過去走数": 4,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/17",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 3,
+          "クッション値": 10.1,
+          "含水率": "1.3%",
+          "近似条件": "",
+          "3着以内": "○"
+        },
+        {
+          "日付": "2025/11/09",
+          "競馬場": "東京",
+          "馬場": "ダ",
+          "距離": "1600m",
+          "レース名": "2歳未勝利",
+          "着順": 10,
+          "クッション値": 9.1,
+          "含水率": "3.4%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/19",
+          "競馬場": "東京",
+          "馬場": "ダ",
+          "距離": "1400m",
+          "レース名": "2歳未勝利",
+          "着順": 7,
+          "クッション値": 9.6,
+          "含水率": "2.5%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/09/28",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 8,
+          "クッション値": 10.3,
+          "含水率": "1.7%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "マイエラ",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2025/12/27",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "2000m",
+          "レース名": "2歳未勝利",
+          "着順": 14,
+          "クッション値": 9.8,
+          "含水率": "11.6%",
+          "近似条件": "○",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/26",
+          "競馬場": "新潟",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳新馬",
+          "着順": 6,
+          "クッション値": 9.3,
+          "含水率": "11.8%",
+          "近似条件": "◎",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "キョンチャン",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/10",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 14,
+          "クッション値": 10.0,
+          "含水率": "5.5%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/09/13",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "2000m",
+          "レース名": "2歳新馬",
+          "着順": null,
+          "クッション値": 8.3,
+          "含水率": "15.8%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "ボビネット",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/25",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 14,
+          "クッション値": 10.8,
+          "含水率": "1.1%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2026/01/04",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳新馬",
+          "着順": 10,
+          "クッション値": 9.4,
+          "含水率": "7.1%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "エーデルハイ",
+      "過去走数": 3,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/18",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "3歳未勝利",
+          "着順": 12,
+          "クッション値": 10.5,
+          "含水率": "11.3%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/10/12",
+          "競馬場": "東京",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳未勝利",
+          "着順": 6,
+          "クッション値": 10.2,
+          "含水率": "12.2%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/09/13",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳新馬",
+          "着順": 8,
+          "クッション値": 8.3,
+          "含水率": "15.8%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "フィールマイプラン",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/12",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1800m",
+          "レース名": "3歳未勝利",
+          "着順": 12,
+          "クッション値": 10.3,
+          "含水率": "2.2%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/12/21",
+          "競馬場": "中山",
+          "馬場": "芝",
+          "距離": "1600m",
+          "レース名": "2歳新馬",
+          "着順": 5,
+          "クッション値": 8.9,
+          "含水率": "15.1%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "モーゲンセン",
+      "過去走数": 5,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/02/01",
+          "競馬場": "東京",
+          "馬場": "ダ",
+          "距離": "1400m",
+          "レース名": "3歳未勝利",
+          "着順": 4,
+          "クッション値": 9.7,
+          "含水率": "1.1%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2026/01/18",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 2,
+          "クッション値": 10.5,
+          "含水率": "1.4%",
+          "近似条件": "",
+          "3着以内": "○"
+        },
+        {
+          "日付": "2025/12/28",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳未勝利",
+          "着順": 3,
+          "クッション値": 9.5,
+          "含水率": "5.7%",
+          "近似条件": "",
+          "3着以内": "○"
+        },
+        {
+          "日付": "2025/10/05",
+          "競馬場": "東京",
+          "馬場": "ダ",
+          "距離": "1400m",
+          "レース名": "2歳未勝利",
+          "着順": 8,
+          "クッション値": 9.9,
+          "含水率": "4.5%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/09/15",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 5,
+          "クッション値": 9.9,
+          "含水率": "5.7%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "シューペルブリアン",
+      "過去走数": 2,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/25",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳未勝利",
+          "着順": 12,
+          "クッション値": 10.8,
+          "含水率": "1.1%",
+          "近似条件": "",
+          "3着以内": ""
+        },
+        {
+          "日付": "2025/12/27",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "2歳新馬",
+          "着順": 11,
+          "クッション値": 9.8,
+          "含水率": "7.2%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    },
+    {
+      "馬名": "エリンフレーム",
+      "過去走数": 1,
+      "近似条件好走": 0,
+      "過去レース": [
+        {
+          "日付": "2026/01/12",
+          "競馬場": "中山",
+          "馬場": "ダ",
+          "距離": "1200m",
+          "レース名": "3歳新馬",
+          "着順": 6,
+          "クッション値": 10.3,
+          "含水率": "2.2%",
+          "近似条件": "",
+          "3着以内": ""
+        }
+      ]
+    }
+  ]
+}
+</script>
+<div id="ai-readable" style="display:none" aria-hidden="true">
+<pre>【03/01 中山3R  ダート1200m】
+当日条件: クッション値=9.5 含水率=11.0%
+
+■ ジャンプストリート（過去3走）
+  2026/01/18 中山 ダ1200m 3歳未勝利 9着 CV=10.5 含水率=1.4% 
+  2025/10/26 東京 芝1600m 2歳未勝利 8着 CV=8.6 含水率=18.4% 
+  2025/10/11 東京 芝1600m 2歳新馬 12着 CV=9.7 含水率=13.5% 
+■ ニシノバリキング（過去1走）
+  2025/12/06 中山 ダ1200m 2歳新馬 16着 CV=10.1 含水率=1.1% 
+■ フォーアライター（過去1走）
+  2025/12/14 中山 芝1600m 2歳新馬 12着 CV=9.9 含水率=11.6% 
+■ ヘヴンズドライブ（過去2走）
+  2025/12/13 中山 ダ1200m 2歳未勝利 6着 CV=10.3 含水率=1.2% 
+  2025/12/07 中山 芝1200m 2歳新馬 11着 CV=10.4 含水率=10.5% 
+■ ピルスナー（過去4走）
+  2025/11/30 東京 芝1600m 2歳未勝利 11着 CV=9.3 含水率=14.9% 
+  2025/11/23 東京 芝1600m 2歳未勝利 11着 CV=9.2 含水率=14.4% 
+  2025/10/19 東京 芝1400m 2歳未勝利 12着 CV=9.6 含水率=13.4% 
+  2025/10/05 京都 芝1200m 2歳新馬 9着 CV=10.0 含水率=10.3% 
+■ カンノンミッキー（過去1走）
+  2026/01/12 中山 ダ1200m 3歳新馬 4着 CV=10.3 含水率=2.2% 
+■ ネオアカジョウ（過去2走）
+  2026/01/18 中山 ダ1200m 3歳未勝利 11着 CV=10.5 含水率=1.4% 
+  2025/10/11 東京 ダ1400m 2歳新馬 16着 CV=9.7 含水率=1.8% 
+■ ヌクレオチド（過去4走）
+  2026/01/17 中山 ダ1200m 3歳未勝利 3着 CV=10.1 含水率=1.3% 
+  2025/11/09 東京 ダ1600m 2歳未勝利 10着 CV=9.1 含水率=3.4% 
+  2025/10/19 東京 ダ1400m 2歳未勝利 7着 CV=9.6 含水率=2.5% 
+  2025/09/28 中山 ダ1200m 2歳新馬 8着 CV=10.3 含水率=1.7% 
+■ マイエラ（過去2走）
+  2025/12/27 中山 芝2000m 2歳未勝利 14着 CV=9.8 含水率=11.6% 
+  2025/10/26 新潟 芝1600m 2歳新馬 6着 CV=9.3 含水率=11.8% ◎
+■ キョンチャン（過去2走）
+  2026/01/10 中山 ダ1200m 3歳未勝利 14着 CV=10.0 含水率=5.5% 
+  2025/09/13 中山 芝2000m 2歳新馬 取消 CV=8.3 含水率=15.8% 
+■ ボビネット（過去2走）
+  2026/01/25 中山 ダ1200m 3歳未勝利 14着 CV=10.8 含水率=1.1% 
+  2026/01/04 中山 ダ1200m 3歳新馬 10着 CV=9.4 含水率=7.1% 
+■ エーデルハイ（過去3走）
+  2026/01/18 中山 芝1600m 3歳未勝利 12着 CV=10.5 含水率=11.3% 
+  2025/10/12 東京 芝1600m 2歳未勝利 6着 CV=10.2 含水率=12.2% 
+  2025/09/13 中山 芝1600m 2歳新馬 8着 CV=8.3 含水率=15.8% 
+■ フィールマイプラン（過去2走）
+  2026/01/12 中山 ダ1800m 3歳未勝利 12着 CV=10.3 含水率=2.2% 
+  2025/12/21 中山 芝1600m 2歳新馬 5着 CV=8.9 含水率=15.1% 
+■ モーゲンセン（過去5走）
+  2026/02/01 東京 ダ1400m 3歳未勝利 4着 CV=9.7 含水率=1.1% 
+  2026/01/18 中山 ダ1200m 3歳未勝利 2着 CV=10.5 含水率=1.4% 
+  2025/12/28 中山 ダ1200m 2歳未勝利 3着 CV=9.5 含水率=5.7% 
+  2025/10/05 東京 ダ1400m 2歳未勝利 8着 CV=9.9 含水率=4.5% 
+  2025/09/15 中山 ダ1200m 2歳新馬 5着 CV=9.9 含水率=5.7% 
+■ シューペルブリアン（過去2走）
+  2026/01/25 中山 ダ1200m 3歳未勝利 12着 CV=10.8 含水率=1.1% 
+  2025/12/27 中山 ダ1200m 2歳新馬 11着 CV=9.8 含水率=7.2% 
+■ エリンフレーム（過去1走）
+  2026/01/12 中山 ダ1200m 3歳新馬 6着 CV=10.3 含水率=2.2% </pre>
+</div>
 <script>
-const HORSES = [{"name": "ジャンプストリート", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 11, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 9, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": false}, {"date": "2025/10/26", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 8, "cushion": 8.6, "moisture": 18.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/11", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 12, "cushion": 9.7, "moisture": 13.5, "cat": "diff_surface", "good": false}]}, {"name": "ニシノバリキング", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 10, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2025/12/06", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 16, "cushion": 10.1, "moisture": 1.1, "cat": "same_dist", "good": false}]}, {"name": "フォーアライター", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 13, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2025/12/14", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 12, "cushion": 9.9, "moisture": 11.6, "cat": "diff_surface", "good": false}]}, {"name": "ヘヴンズドライブ", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 7, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2025/12/13", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳未勝利", "result": 6, "cushion": 10.3, "moisture": 1.2, "cat": "same_dist", "good": false}, {"date": "2025/12/07", "venue": "中山", "surface": "芝", "distance": 1200, "race_name": "2歳新馬", "result": 11, "cushion": 10.4, "moisture": 10.5, "cat": "diff_surface", "good": false}]}, {"name": "ピルスナー", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 12, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2025/11/30", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 11, "cushion": 9.3, "moisture": 14.9, "cat": "diff_surface", "good": false}, {"date": "2025/11/23", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 11, "cushion": 9.2, "moisture": 14.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/19", "venue": "東京", "surface": "芝", "distance": 1400, "race_name": "2歳未勝利", "result": 12, "cushion": 9.6, "moisture": 13.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/05", "venue": "京都", "surface": "芝", "distance": 1200, "race_name": "2歳新馬", "result": 9, "cushion": 10.0, "moisture": 10.3, "cat": "diff_surface", "good": false}]}, {"name": "カンノンミッキー", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 4, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 4, "cushion": 10.3, "moisture": 2.2, "cat": "same_dist", "good": false}]}, {"name": "ネオアカジョウ", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 15, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 11, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": false}, {"date": "2025/10/11", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳新馬", "result": 16, "cushion": 9.7, "moisture": 1.8, "cat": "diff_dist", "good": false}]}, {"name": "ヌクレオチド", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 2, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": true}, {"date": "2026/01/17", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 3, "cushion": 10.1, "moisture": 1.3, "cat": "same_dist", "good": true}, {"date": "2025/11/09", "venue": "東京", "surface": "ダ", "distance": 1600, "race_name": "2歳未勝利", "result": 10, "cushion": 9.1, "moisture": 3.4, "cat": "diff_dist", "good": false}, {"date": "2025/10/19", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳未勝利", "result": 7, "cushion": 9.6, "moisture": 2.5, "cat": "diff_dist", "good": false}, {"date": "2025/09/28", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 8, "cushion": 10.3, "moisture": 1.7, "cat": "same_dist", "good": false}]}, {"name": "マイエラ", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 6, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2025/12/27", "venue": "中山", "surface": "芝", "distance": 2000, "race_name": "2歳未勝利", "result": 14, "cushion": 9.8, "moisture": 11.6, "cat": "diff_surface", "good": false}, {"date": "2025/10/26", "venue": "新潟", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 6, "cushion": 9.3, "moisture": 11.8, "cat": "diff_surface", "good": false}]}, {"name": "キョンチャン", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 9, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/10", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 14, "cushion": 10.0, "moisture": 5.5, "cat": "same_dist", "good": false}, {"date": "2025/09/13", "venue": "中山", "surface": "芝", "distance": 2000, "race_name": "2歳新馬", "result": null, "cushion": 8.3, "moisture": 15.8, "cat": "diff_surface", "good": false}]}, {"name": "ボビネット", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 14, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/25", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 14, "cushion": 10.8, "moisture": 1.1, "cat": "same_dist", "good": false}, {"date": "2026/01/04", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 10, "cushion": 9.4, "moisture": 7.1, "cat": "same_dist", "good": false}]}, {"name": "エーデルハイ", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 8, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/18", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "3歳未勝利", "result": 12, "cushion": 10.5, "moisture": 11.3, "cat": "diff_surface", "good": false}, {"date": "2025/10/12", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 6, "cushion": 10.2, "moisture": 12.2, "cat": "diff_surface", "good": false}, {"date": "2025/09/13", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 8, "cushion": 8.3, "moisture": 15.8, "cat": "diff_surface", "good": false}]}, {"name": "フィールマイプラン", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 3, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": true}, {"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1800, "race_name": "3歳未勝利", "result": 12, "cushion": 10.3, "moisture": 2.2, "cat": "diff_dist", "good": false}, {"date": "2025/12/21", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 5, "cushion": 8.9, "moisture": 15.1, "cat": "diff_surface", "good": false}]}, {"name": "モーゲンセン", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 1, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": true}, {"date": "2026/02/01", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "3歳未勝利", "result": 4, "cushion": 9.7, "moisture": 1.1, "cat": "diff_dist", "good": false}, {"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 2, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": true}, {"date": "2025/12/28", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳未勝利", "result": 3, "cushion": 9.5, "moisture": 5.7, "cat": "same_dist", "good": true}, {"date": "2025/10/05", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳未勝利", "result": 8, "cushion": 9.9, "moisture": 4.5, "cat": "diff_dist", "good": false}, {"date": "2025/09/15", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 5, "cushion": 9.9, "moisture": 5.7, "cat": "same_dist", "good": false}]}, {"name": "シューペルブリアン", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 16, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/25", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 12, "cushion": 10.8, "moisture": 1.1, "cat": "same_dist", "good": false}, {"date": "2025/12/27", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 11, "cushion": 9.8, "moisture": 7.2, "cat": "same_dist", "good": false}]}, {"name": "エリンフレーム", "races": [{"date": "2026/03/01", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 5, "cushion": 9.5, "moisture": 11.0, "cat": "same_dist", "good": false}, {"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 6, "cushion": 10.3, "moisture": 2.2, "cat": "same_dist", "good": false}]}];
+const HORSES = [{"name": "ジャンプストリート", "races": [{"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 9, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": false}, {"date": "2025/10/26", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 8, "cushion": 8.6, "moisture": 18.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/11", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 12, "cushion": 9.7, "moisture": 13.5, "cat": "diff_surface", "good": false}]}, {"name": "ニシノバリキング", "races": [{"date": "2025/12/06", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 16, "cushion": 10.1, "moisture": 1.1, "cat": "same_dist", "good": false}]}, {"name": "フォーアライター", "races": [{"date": "2025/12/14", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 12, "cushion": 9.9, "moisture": 11.6, "cat": "diff_surface", "good": false}]}, {"name": "ヘヴンズドライブ", "races": [{"date": "2025/12/13", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳未勝利", "result": 6, "cushion": 10.3, "moisture": 1.2, "cat": "same_dist", "good": false}, {"date": "2025/12/07", "venue": "中山", "surface": "芝", "distance": 1200, "race_name": "2歳新馬", "result": 11, "cushion": 10.4, "moisture": 10.5, "cat": "diff_surface", "good": false}]}, {"name": "ピルスナー", "races": [{"date": "2025/11/30", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 11, "cushion": 9.3, "moisture": 14.9, "cat": "diff_surface", "good": false}, {"date": "2025/11/23", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 11, "cushion": 9.2, "moisture": 14.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/19", "venue": "東京", "surface": "芝", "distance": 1400, "race_name": "2歳未勝利", "result": 12, "cushion": 9.6, "moisture": 13.4, "cat": "diff_surface", "good": false}, {"date": "2025/10/05", "venue": "京都", "surface": "芝", "distance": 1200, "race_name": "2歳新馬", "result": 9, "cushion": 10.0, "moisture": 10.3, "cat": "diff_surface", "good": false}]}, {"name": "カンノンミッキー", "races": [{"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 4, "cushion": 10.3, "moisture": 2.2, "cat": "same_dist", "good": false}]}, {"name": "ネオアカジョウ", "races": [{"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 11, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": false}, {"date": "2025/10/11", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳新馬", "result": 16, "cushion": 9.7, "moisture": 1.8, "cat": "diff_dist", "good": false}]}, {"name": "ヌクレオチド", "races": [{"date": "2026/01/17", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 3, "cushion": 10.1, "moisture": 1.3, "cat": "same_dist", "good": true}, {"date": "2025/11/09", "venue": "東京", "surface": "ダ", "distance": 1600, "race_name": "2歳未勝利", "result": 10, "cushion": 9.1, "moisture": 3.4, "cat": "diff_dist", "good": false}, {"date": "2025/10/19", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳未勝利", "result": 7, "cushion": 9.6, "moisture": 2.5, "cat": "diff_dist", "good": false}, {"date": "2025/09/28", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 8, "cushion": 10.3, "moisture": 1.7, "cat": "same_dist", "good": false}]}, {"name": "マイエラ", "races": [{"date": "2025/12/27", "venue": "中山", "surface": "芝", "distance": 2000, "race_name": "2歳未勝利", "result": 14, "cushion": 9.8, "moisture": 11.6, "cat": "diff_surface", "good": false}, {"date": "2025/10/26", "venue": "新潟", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 6, "cushion": 9.3, "moisture": 11.8, "cat": "diff_surface", "good": false}]}, {"name": "キョンチャン", "races": [{"date": "2026/01/10", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 14, "cushion": 10.0, "moisture": 5.5, "cat": "same_dist", "good": false}, {"date": "2025/09/13", "venue": "中山", "surface": "芝", "distance": 2000, "race_name": "2歳新馬", "result": null, "cushion": 8.3, "moisture": 15.8, "cat": "diff_surface", "good": false}]}, {"name": "ボビネット", "races": [{"date": "2026/01/25", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 14, "cushion": 10.8, "moisture": 1.1, "cat": "same_dist", "good": false}, {"date": "2026/01/04", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 10, "cushion": 9.4, "moisture": 7.1, "cat": "same_dist", "good": false}]}, {"name": "エーデルハイ", "races": [{"date": "2026/01/18", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "3歳未勝利", "result": 12, "cushion": 10.5, "moisture": 11.3, "cat": "diff_surface", "good": false}, {"date": "2025/10/12", "venue": "東京", "surface": "芝", "distance": 1600, "race_name": "2歳未勝利", "result": 6, "cushion": 10.2, "moisture": 12.2, "cat": "diff_surface", "good": false}, {"date": "2025/09/13", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 8, "cushion": 8.3, "moisture": 15.8, "cat": "diff_surface", "good": false}]}, {"name": "フィールマイプラン", "races": [{"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1800, "race_name": "3歳未勝利", "result": 12, "cushion": 10.3, "moisture": 2.2, "cat": "diff_dist", "good": false}, {"date": "2025/12/21", "venue": "中山", "surface": "芝", "distance": 1600, "race_name": "2歳新馬", "result": 5, "cushion": 8.9, "moisture": 15.1, "cat": "diff_surface", "good": false}]}, {"name": "モーゲンセン", "races": [{"date": "2026/02/01", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "3歳未勝利", "result": 4, "cushion": 9.7, "moisture": 1.1, "cat": "diff_dist", "good": false}, {"date": "2026/01/18", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 2, "cushion": 10.5, "moisture": 1.4, "cat": "same_dist", "good": true}, {"date": "2025/12/28", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳未勝利", "result": 3, "cushion": 9.5, "moisture": 5.7, "cat": "same_dist", "good": true}, {"date": "2025/10/05", "venue": "東京", "surface": "ダ", "distance": 1400, "race_name": "2歳未勝利", "result": 8, "cushion": 9.9, "moisture": 4.5, "cat": "diff_dist", "good": false}, {"date": "2025/09/15", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 5, "cushion": 9.9, "moisture": 5.7, "cat": "same_dist", "good": false}]}, {"name": "シューペルブリアン", "races": [{"date": "2026/01/25", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳未勝利", "result": 12, "cushion": 10.8, "moisture": 1.1, "cat": "same_dist", "good": false}, {"date": "2025/12/27", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "2歳新馬", "result": 11, "cushion": 9.8, "moisture": 7.2, "cat": "same_dist", "good": false}]}, {"name": "エリンフレーム", "races": [{"date": "2026/01/12", "venue": "中山", "surface": "ダ", "distance": 1200, "race_name": "3歳新馬", "result": 6, "cushion": 10.3, "moisture": 2.2, "cat": "same_dist", "good": false}]}];
 const TX = 9.5;
 const TY = 11.0;
 const TDIST = 1200;

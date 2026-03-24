@@ -1505,6 +1505,6 @@ canvas.addEventListener('touchstart',(e)=>{const t=e.touches[0];const rect=canva
 canvas.addEventListener('touchmove',(e)=>{const t=e.touches[0];const rect=canvas.getBoundingClientRect();showTooltipAt(t.clientX-rect.left,t.clientY-rect.top,t.clientX,t.clientY);},{passive:true});
 canvas.addEventListener('touchend',()=>{if(touchTimer)clearTimeout(touchTimer);touchTimer=setTimeout(()=>tooltipEl.classList.remove('show'),2000);});
 canvas.addEventListener('click',(e)=>{const rect=canvas.getBoundingClientRect();showTooltipAt(e.clientX-rect.left,e.clientY-rect.top,e.clientX,e.clientY);});
-window.addEventListener('resize',resize); buildPanel(); resize();
+window.addEventListener('resize',resize); buildPanel(); updateRatings(); resize();
 </script>
 </body></html>

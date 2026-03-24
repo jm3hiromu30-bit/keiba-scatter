@@ -2266,7 +2266,9 @@ function draw() {
   ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.strokeText('★',tx,ty);ctx.fillText('★',tx,ty);
   ctx.textBaseline='alphabetic';
 }
-const ratings = {};
+const STORAGE_KEY='ratings_中京_10R_';
+const ratings=(function(){try{const s=localStorage.getItem(STORAGE_KEY);return s?JSON.parse(s):{};}catch(e){return {};}})();
+function saveRatings(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings));}catch(e){}};
 function buildPanel(){
   const panel=document.getElementById('panel');
   const RANKS=['S','A','B','C','D'];
@@ -2314,6 +2316,7 @@ function updateRatings(){
     const name=HORSES[hi].name;
     btn.className='rating-btn'+(ratings[name]===rank?' rated-'+rank:'');
   });
+  saveRatings();
   draw();
 }
 const isMobile='ontouchstart' in window;

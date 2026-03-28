@@ -3,150 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>クッション値×含水率 散布図</title>
+<title>03/29 クッション値×含水率 散布図</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Noto Sans JP',sans-serif; background:#f8fafc; color:#1e293b; padding:16px; }
 h1 { font-size:20px; font-weight:900; margin-bottom:4px; }
 .sub { font-size:12px; color:#64748b; margin-bottom:16px; }
-.date-section { margin-bottom:20px; }
-.date-header { font-size:15px; font-weight:800; padding:12px 14px; background:#1e293b; color:#fff; border-radius:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
-.date-header.open { border-radius:10px 10px 0 0; }
-.date-header .toggle { font-size:12px; transition:transform 0.2s; }
-.date-header.open .toggle { transform:rotate(180deg); }
-.race-list { display:none; }
-.race-list.open { display:block; }
+.venue { margin-bottom:20px; }
+.venue h2 { font-size:15px; font-weight:800; padding:10px 14px; background:#1e293b; color:#fff; border-radius:10px 10px 0 0; }
 a { display:block; padding:14px 16px; border-bottom:1px solid #e2e8f0; background:#fff; color:#1e293b; text-decoration:none; font-size:15px; font-weight:700; }
 a:last-child { border-radius:0 0 10px 10px; }
 a:active { background:#f1f5f9; }
+.meta { font-size:11px; color:#94a3b8; font-weight:600; }
 a .arrow { float:right; color:#94a3b8; }
 </style>
 </head>
 <body>
-<h1>クッション値×含水率 散布図</h1>
-<div class="sub">日付別一覧 ─ 日付をタップでレース表示</div>
-<div class="date-section"><div class="date-header open" onclick="toggleDate(this)">2026/03/29（38R）<span class="toggle">▼</span></div>
-<div class="race-list open">
-<a href="scatter_20260329_中京01R_3歳未勝利.html">中京01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京02R_3歳未勝利.html">中京02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京03R_3歳未勝利.html">中京03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京04R_3歳未勝利.html">中京04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京05R_3歳未勝利.html">中京05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京06R_4歳以上.html">中京06R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京07R_4歳以上.html">中京07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京08R_大寒桜賞.html">中京08R 大寒桜賞<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京09R_4歳以上.html">中京09R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京09R_大寒桜賞.html">中京09R 大寒桜賞<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京10R_伊勢S.html">中京10R 伊勢S<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京11R_高松宮記念.html">中京11R 高松宮記念<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京12R_鈴鹿特別.html">中京12R 鈴鹿特別<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山01R_3歳未勝利.html">中山01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山02R_3歳未勝利.html">中山02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山03R_3歳未勝利.html">中山03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山04R_3歳未勝利.html">中山04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山05R_3歳未勝利.html">中山05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山06R_3歳.html">中山06R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山07R_4歳以上.html">中山07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山08R_4歳以上.html">中山08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山09R_ミモザ賞.html">中山09R ミモザ賞<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山10R_船橋S.html">中山10R 船橋S<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山11R_マーチS.html">中山11R マーチS<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山12R_4歳以上.html">中山12R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神01R_3歳未勝利.html">阪神01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神02R_3歳未勝利.html">阪神02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神03R_3歳未勝利.html">阪神03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神04R_4歳以上障害未勝利.html">阪神04R 4歳以上障害未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神05R_3歳未勝利.html">阪神05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神06R_3歳.html">阪神06R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神07R_4歳以上.html">阪神07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神08R_四国新聞杯.html">阪神08R 四国新聞杯<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神09R_4歳以上.html">阪神09R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神09R_四国新聞杯.html">阪神09R 四国新聞杯<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神10R_御堂筋S.html">阪神10R 御堂筋S<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神11R_六甲S.html">阪神11R 六甲S<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神12R_4歳以上.html">阪神12R 4歳以上<span class="arrow">→</span></a>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/03/28（36R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<a href="scatter_20260328_中京01R_3歳未勝利.html">中京01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京02R_3歳未勝利.html">中京02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京03R_3歳未勝利.html">中京03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京04R_3歳未勝利.html">中京04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京05R_3歳未勝利.html">中京05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京06R_4歳以上.html">中京06R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京07R_4歳以上.html">中京07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京08R_4歳以上.html">中京08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京09R_ロイヤルBS.html">中京09R ロイヤルBS<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京10R_TAインディ.html">中京10R TAインディ<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京10R_インディア賞.html">中京10R インディア賞<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京11R_マレーシアC.html">中京11R マレーシアC<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京12R_フィリピンT.html">中京12R フィリピンT<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山01R_3歳未勝利.html">中山01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山02R_3歳未勝利.html">中山02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山03R_3歳未勝利.html">中山03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山04R_3歳未勝利.html">中山04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山05R_3歳未勝利.html">中山05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山06R_3歳.html">中山06R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山07R_4歳以上.html">中山07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山08R_4歳以上.html">中山08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山09R_ブラッドスト.html">中山09R ブラッドスト<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山10R_伏竜S.html">中山10R 伏竜S<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山11R_日経賞.html">中山11R 日経賞<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山12R_4歳以上.html">中山12R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神01R_3歳未勝利.html">阪神01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神02R_3歳未勝利.html">阪神02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神03R_3歳未勝利.html">阪神03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神04R_3歳未勝利.html">阪神04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神05R_3歳未勝利.html">阪神05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神06R_3歳.html">阪神06R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神07R_4歳以上.html">阪神07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神09R_君子蘭賞.html">阪神09R 君子蘭賞<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神10R_仲春特別.html">阪神10R 仲春特別<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神11R_毎日杯.html">阪神11R 毎日杯<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神12R_4歳以上.html">阪神12R 4歳以上<span class="arrow">→</span></a>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/03/22（35R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<a href="scatter_20260322_中京01R_3歳未勝利.html">中京01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京02R_3歳未勝利.html">中京02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京03R_3歳未勝利.html">中京03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京04R_3歳未勝利.html">中京04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京05R_3歳未勝利.html">中京05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京06R_4歳以上.html">中京06R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京07R_4歳以上.html">中京07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京08R_4歳以上.html">中京08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京09R_Fウォーク賞.html">中京09R Fウォーク賞<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京10R_弥富特別.html">中京10R 弥富特別<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京11R_愛知杯.html">中京11R 愛知杯<span class="arrow">→</span></a>
-<a href="scatter_20260322_中京12R_4歳以上.html">中京12R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山01R_3歳未勝利.html">中山01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山02R_3歳未勝利.html">中山02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山03R_3歳.html">中山03R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山05R_3歳未勝利.html">中山05R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山06R_3歳未勝利.html">中山06R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山07R_3歳.html">中山07R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山08R_4歳以上.html">中山08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山09R_鎌ケ谷特別.html">中山09R 鎌ケ谷特別<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山10R_スピカS.html">中山10R スピカS<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山11R_千葉S.html">中山11R 千葉S<span class="arrow">→</span></a>
-<a href="scatter_20260322_中山12R_4歳以上.html">中山12R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神01R_3歳未勝利.html">阪神01R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神02R_3歳未勝利.html">阪神02R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神03R_3歳未勝利.html">阪神03R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神04R_3歳未勝利.html">阪神04R 3歳未勝利<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神05R_3歳.html">阪神05R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神06R_3歳.html">阪神06R 3歳<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神07R_4歳以上.html">阪神07R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神08R_4歳以上.html">阪神08R 4歳以上<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神09R_皆生特別.html">阪神09R 皆生特別<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神10R_レグルスS.html">阪神10R レグルスS<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神11R_阪神大賞典.html">阪神11R 阪神大賞典<span class="arrow">→</span></a>
-<a href="scatter_20260322_阪神12R_4歳以上.html">阪神12R 4歳以上<span class="arrow">→</span></a>
-</div></div>
-<script>
-function toggleDate(el){
-  el.classList.toggle('open');
-  el.nextElementSibling.classList.toggle('open');
-}
-</script>
+<h1>03/29 クッション値×含水率</h1>
+<div class="sub">散布図一覧 ─ タップで各レースの散布図を表示</div>
+<div class="venue"><h2>中山　CV=9.1 芝14.4% ダ13.2%</h2>
+<a href="scatter_20260329_中山01R_3歳未勝利.html">1R 3歳未勝利 <span class="meta">16頭 45pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山02R_3歳未勝利.html">2R 3歳未勝利 <span class="meta">16頭 41pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山03R_3歳未勝利.html">3R 3歳未勝利 <span class="meta">15頭 38pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山04R_3歳未勝利.html">4R 3歳未勝利 <span class="meta">16頭 27pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山05R_3歳未勝利.html">5R 3歳未勝利 <span class="meta">13頭 38pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山06R_3歳.html">6R 3歳 <span class="meta">13頭 58pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山07R_4歳以上.html">7R 4歳以上 <span class="meta">15頭 132pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山08R_4歳以上.html">8R 4歳以上 <span class="meta">16頭 138pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山09R_ミモザ賞.html">9R ミモザ賞 <span class="meta">7頭 18pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山10R_船橋S.html">10R 船橋S <span class="meta">15頭 150pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山11R_マーチS.html">11R マーチS <span class="meta">16頭 154pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中山12R_4歳以上.html">12R 4歳以上 <span class="meta">11頭 102pts</span><span class="arrow">→</span></a>
+</div>
+<div class="venue"><h2>阪神　CV=9.0 芝11.3% ダ9.0%</h2>
+<a href="scatter_20260329_阪神01R_3歳未勝利.html">1R 3歳未勝利 <span class="meta">14頭 26pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神02R_3歳未勝利.html">2R 3歳未勝利 <span class="meta">9頭 23pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神03R_3歳未勝利.html">3R 3歳未勝利 <span class="meta">16頭 66pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神04R_4歳以上障害未勝利.html">4R 4歳以上障害未勝利 <span class="meta">14頭 126pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神05R_3歳未勝利.html">5R 3歳未勝利 <span class="meta">12頭 20pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神06R_3歳.html">6R 3歳 <span class="meta">10頭 38pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神07R_4歳以上.html">7R 4歳以上 <span class="meta">14頭 128pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神08R_四国新聞杯.html">8R 四国新聞杯 <span class="meta">7頭 68pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神09R_4歳以上.html">9R 4歳以上 <span class="meta">15頭 119pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神10R_御堂筋S.html">10R 御堂筋S <span class="meta">11頭 104pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神11R_六甲S.html">11R 六甲S <span class="meta">13頭 130pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_阪神12R_4歳以上.html">12R 4歳以上 <span class="meta">16頭 153pts</span><span class="arrow">→</span></a>
+</div>
+<div class="venue"><h2>中京　CV=9.8 芝13.7% ダ9.9%</h2>
+<a href="scatter_20260329_中京01R_3歳未勝利.html">1R 3歳未勝利 <span class="meta">16頭 44pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京02R_3歳未勝利.html">2R 3歳未勝利 <span class="meta">14頭 51pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京03R_3歳未勝利.html">3R 3歳未勝利 <span class="meta">15頭 47pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京04R_3歳未勝利.html">4R 3歳未勝利 <span class="meta">18頭 55pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京05R_3歳未勝利.html">5R 3歳未勝利 <span class="meta">16頭 42pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京06R_4歳以上.html">6R 4歳以上 <span class="meta">13頭 111pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京07R_4歳以上.html">7R 4歳以上 <span class="meta">13頭 109pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京08R_大寒桜賞.html">8R 大寒桜賞 <span class="meta">7頭 18pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京09R_4歳以上.html">9R 4歳以上 <span class="meta">16頭 123pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京10R_伊勢S.html">10R 伊勢S <span class="meta">15頭 148pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京11R_高松宮記念.html">11R 高松宮記念 <span class="meta">18頭 164pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260329_中京12R_鈴鹿特別.html">12R 鈴鹿特別 <span class="meta">16頭 151pts</span><span class="arrow">→</span></a>
+</div>
 </body></html>

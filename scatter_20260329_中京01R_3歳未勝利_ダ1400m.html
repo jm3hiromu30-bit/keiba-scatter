@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>クッション値×含水率 - 中京</title>
+<title>クッション値×含水率 - 中京3歳未勝利</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -101,7 +101,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
 </head>
 <body style="display:flex;flex-direction:column;">
 <div class="header">
-  <h1>中京1R  ダ1400m</h1>
+  <h1>中京1R 3歳未勝利 ダ1400m</h1>
   <div class="sub">出走馬 クッション値×含水率 解析</div>
   <div class="target">
     <span>CV: <b style="color:#d97706">10.4</b></span>
@@ -126,7 +126,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
     "開催日": "03/29",
     "競馬場": "中京",
     "レース番号": "1R",
-    "レース名": "",
+    "レース名": "3歳未勝利",
     "馬場": "ダート",
     "距離": "1400m",
     "当日クッション値": 10.4,
@@ -774,7 +774,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
 }
 </script>
 <div id="ai-readable" style="display:none" aria-hidden="true">
-<pre>【03/29 中京1R  ダート1400m】
+<pre>【03/29 中京1R 3歳未勝利 ダート1400m】
 当日条件: クッション値=10.4 含水率=4.9%
 
 ■ ワイルドミュール（過去2走）
@@ -925,10 +925,10 @@ function draw() {
   ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.strokeText('★',tx,ty);ctx.fillText('★',tx,ty);
   ctx.textBaseline='alphabetic';
 }
-const STORAGE_KEY='ratings_中京_1R_';
+const STORAGE_KEY='ratings_中京_1R_3歳未勝利';
 const ratings=(function(){try{const s=localStorage.getItem(STORAGE_KEY);return s?JSON.parse(s):{};}catch(e){return {};}})();
 function saveRatings(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings));}catch(e){}};
-const RR_KEY='raceRatings_中京_1R_';
+const RR_KEY='raceRatings_中京_1R_3歳未勝利';
 const raceRatings=(function(){try{const s=localStorage.getItem(RR_KEY);return s?JSON.parse(s):{};}catch(e){return {};}})();
 function saveRaceRatings(){try{localStorage.setItem(RR_KEY,JSON.stringify(raceRatings));}catch(e){}};
 function buildPanel(){

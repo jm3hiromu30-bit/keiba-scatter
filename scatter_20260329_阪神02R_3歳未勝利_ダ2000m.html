@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>クッション値×含水率 - 阪神</title>
+<title>クッション値×含水率 - 阪神3歳未勝利</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -101,7 +101,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
 </head>
 <body style="display:flex;flex-direction:column;">
 <div class="header">
-  <h1>阪神2R  ダ2000m</h1>
+  <h1>阪神2R 3歳未勝利 ダ2000m</h1>
   <div class="sub">出走馬 クッション値×含水率 解析</div>
   <div class="target">
     <span>CV: <b style="color:#d97706">9.3</b></span>
@@ -126,7 +126,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
     "開催日": "03/29",
     "競馬場": "阪神",
     "レース番号": "2R",
-    "レース名": "",
+    "レース名": "3歳未勝利",
     "馬場": "ダート",
     "距離": "2000m",
     "当日クッション値": 9.3,
@@ -476,7 +476,7 @@ canvas { display: block; width: 100% !important; height: 100% !important; touch-
 }
 </script>
 <div id="ai-readable" style="display:none" aria-hidden="true">
-<pre>【03/29 阪神2R  ダート2000m】
+<pre>【03/29 阪神2R 3歳未勝利 ダート2000m】
 当日条件: クッション値=9.3 含水率=6.6%
 
 ■ ニシノエビガタメ（過去3走）
@@ -599,10 +599,10 @@ function draw() {
   ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.strokeText('★',tx,ty);ctx.fillText('★',tx,ty);
   ctx.textBaseline='alphabetic';
 }
-const STORAGE_KEY='ratings_阪神_2R_';
+const STORAGE_KEY='ratings_阪神_2R_3歳未勝利';
 const ratings=(function(){try{const s=localStorage.getItem(STORAGE_KEY);return s?JSON.parse(s):{};}catch(e){return {};}})();
 function saveRatings(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings));}catch(e){}};
-const RR_KEY='raceRatings_阪神_2R_';
+const RR_KEY='raceRatings_阪神_2R_3歳未勝利';
 const raceRatings=(function(){try{const s=localStorage.getItem(RR_KEY);return s?JSON.parse(s):{};}catch(e){return {};}})();
 function saveRaceRatings(){try{localStorage.setItem(RR_KEY,JSON.stringify(raceRatings));}catch(e){}};
 function buildPanel(){

@@ -1930,6 +1930,7 @@ const TY = 12.0;
 const LINE_X = 9.5;
 const LINE_Y = 12.0;
 const TDIST = 1200;
+const SURFACE = 'ダ';
 const COLORS = { same_dist:'#dc2626', diff_dist:'#2563eb', diff_surface:'#94a3b8', target:'#d97706' };
 const X_MIN = 7.0, X_MAX = 12.0;
 const Y_MIN = 0, Y_MAX = 22;
@@ -1959,15 +1960,13 @@ function draw() {
   ctx.fillStyle='#64748b';ctx.font='bold 11px sans-serif';ctx.textAlign='center';
   ctx.fillText('クッション値',W/2,H-5);
   ctx.save();ctx.translate(12,H/2);ctx.rotate(-Math.PI/2);ctx.fillText('含水率（ゴール前）%',0,0);ctx.restore();
-  ctx.fillStyle='rgba(59,130,246,0.04)';
-  let sx0=toCanvasX(LINE_X-0.5),sx1=toCanvasX(LINE_X+0.5),sy0=toCanvasY(LINE_Y+3),sy1=toCanvasY(LINE_Y-3);
-  ctx.fillRect(sx0,sy0,sx1-sx0,sy1-sy0);
-  ctx.fillStyle='rgba(16,185,129,0.1)';
-  let ix0=toCanvasX(LINE_X-0.2),ix1=toCanvasX(LINE_X+0.2),iy0=toCanvasY(LINE_Y+1.5),iy1=toCanvasY(LINE_Y-1.5);
-  ctx.fillRect(ix0,iy0,ix1-ix0,iy1-iy0);
   ctx.setLineDash([6,3]);ctx.strokeStyle='#94a3b8';ctx.lineWidth=2;
-  ctx.beginPath();ctx.moveTo(toCanvasX(LINE_X),20);ctx.lineTo(toCanvasX(LINE_X),H-40);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(50,toCanvasY(LINE_Y));ctx.lineTo(W-50,toCanvasY(LINE_Y));ctx.stroke();
+  if(SURFACE==='芝'){
+    ctx.beginPath();ctx.moveTo(toCanvasX(LINE_X),20);ctx.lineTo(toCanvasX(LINE_X),H-40);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(50,toCanvasY(LINE_Y));ctx.lineTo(W-50,toCanvasY(LINE_Y));ctx.stroke();
+  }else{
+    [5,10,15].forEach(pct=>{ctx.beginPath();ctx.moveTo(50,toCanvasY(pct));ctx.lineTo(W-50,toCanvasY(pct));ctx.stroke();});
+  }
   ctx.setLineDash([]);
   const hlDeferred=[];
   HORSES.forEach((h,hi)=>{

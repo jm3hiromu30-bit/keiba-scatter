@@ -3,338 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>クッション値×含水率 散布図</title>
+<title>04/12 クッション値×含水率 散布図</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Noto Sans JP',sans-serif; background:#f8fafc; color:#1e293b; padding:16px; }
 h1 { font-size:20px; font-weight:900; margin-bottom:4px; }
 .sub { font-size:12px; color:#64748b; margin-bottom:16px; }
-.date-section { margin-bottom:20px; }
-.date-header { font-size:15px; font-weight:800; padding:12px 14px; background:#1e293b; color:#fff; border-radius:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
-.date-header.open { border-radius:10px 10px 0 0; }
-.date-header .toggle { font-size:12px; transition:transform 0.2s; }
-.date-header.open .toggle { transform:rotate(180deg); }
-.race-list { display:none; }
-.race-list.open { display:block; }
-.venue-section { margin:0; }
-.venue-header { font-size:13px; font-weight:800; padding:10px 14px; background:#334155; color:#fff; cursor:pointer; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #475569; }
-.venue-header.open { background:#475569; }
-.venue-header .venue-info { font-size:10px; font-weight:600; color:#94a3b8; margin-left:8px; }
-.venue-header .toggle { font-size:10px; transition:transform 0.2s; }
-.venue-header.open .toggle { transform:rotate(180deg); }
-.venue-races { display:none; }
-.venue-races.open { display:block; }
+.venue { margin-bottom:20px; }
+.venue h2 { font-size:15px; font-weight:800; padding:10px 14px; background:#1e293b; color:#fff; border-radius:10px 10px 0 0; }
 a { display:block; padding:14px 16px; border-bottom:1px solid #e2e8f0; background:#fff; color:#1e293b; text-decoration:none; font-size:15px; font-weight:700; }
 a:last-child { border-radius:0 0 10px 10px; }
 a:active { background:#f1f5f9; }
+.meta { font-size:11px; color:#94a3b8; font-weight:600; }
 a .arrow { float:right; color:#94a3b8; }
 </style>
 </head>
 <body>
-<h1>クッション値×含水率 散布図</h1>
-<div class="sub">日付別一覧 ─ 日付をタップでレース表示</div>
-<div class="date-section"><div class="date-header open" onclick="toggleDate(this)">2026/04/19（11R）<span class="toggle">▼</span></div>
-<div class="race-list open">
-<div class="venue-section"><div class="venue-header open" onclick="toggleVenue(this)">中山<span class="venue-info"></span><span class="toggle">▼</span></div>
-<div class="venue-races open">
-<a href="scatter_20260419_中山08R_利根川特別_ダ1800m.html">08R 利根川特別 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260419_中山09R_野島崎特別_芝2000m.html">09R 野島崎特別 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260419_中山10R_京葉S_ダ1200m.html">10R 京葉S ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260419_中山11R_皐月賞_芝2000m.html">11R 皐月賞 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260419_中山12R_サンシャイン_芝2200m.html">12R サンシャイン 芝2200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header open" onclick="toggleVenue(this)">阪神<span class="venue-info"></span><span class="toggle">▼</span></div>
-<div class="venue-races open">
-<a href="scatter_20260419_阪神09R_蓬莱峡特別_芝2000m.html">09R 蓬莱峡特別 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260419_阪神10R_陽春S_ダ1200m.html">10R 陽春S ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260419_阪神11R_立雲峡S_芝1600m.html">11R 立雲峡S 芝1600m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header open" onclick="toggleVenue(this)">福島<span class="venue-info"></span><span class="toggle">▼</span></div>
-<div class="venue-races open">
-<a href="scatter_20260419_福島09R_須賀川特別_芝1200m.html">09R 須賀川特別 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260419_福島10R_奥の細道特別_芝2600m.html">10R 奥の細道特別 芝2600m<span class="arrow">→</span></a>
-<a href="scatter_20260419_福島11R_福島牝馬S_芝1800m.html">11R 福島牝馬S 芝1800m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/04/12（35R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=9.3 芝12.0% ダ7.9%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260412_中山01R_3歳未勝利_ダ1200m.html">01R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山05R_3歳未勝利_芝2200m.html">05R 3歳未勝利 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山06R_3歳1勝クラス_ダ1800m.html">06R 3歳1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山07R_4歳以上1勝クラス_芝1600m.html">07R 4歳以上1勝クラス 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山08R_4歳以上2勝クラス_芝1800m.html">08R 4歳以上2勝クラス 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山09R_印西特別_ダ2400m.html">09R 印西特別 ダ2400m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山10R_あけぼのS_芝1600m.html">10R あけぼのS 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山11R_春雷S_芝1200m.html">11R 春雷S 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_中山12R_4歳以上1勝クラス_ダ1200m.html">12R 4歳以上1勝クラス ダ1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=8.9 芝12.1% ダ10.5%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260412_阪神01R_3歳未勝利_ダ1400m.html">01R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神04R_3歳未勝利_芝1600m.html">04R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神05R_3歳1勝クラス_ダ1400m.html">05R 3歳1勝クラス ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神06R_4歳以上1勝クラス_ダ1800m.html">06R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神07R_4歳以上2勝クラス_芝1600m.html">07R 4歳以上2勝クラス 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神08R_川西特別_ダ1800m.html">08R 川西特別 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神09R_忘れな草賞_芝2000m.html">09R 忘れな草賞 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神10R_京橋S_芝2000m.html">10R 京橋S 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神11R_桜花賞_芝1600m.html">11R 桜花賞 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_阪神12R_梅田S_ダ2000m.html">12R 梅田S ダ2000m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">福島<span class="venue-info">CV=9.5 芝10.6% ダ2.4%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260412_福島01R_3歳未勝利_ダ1700m.html">01R 3歳未勝利 ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島02R_3歳未勝利_芝1200m.html">02R 3歳未勝利 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島03R_3歳未勝利_ダ1700m.html">03R 3歳未勝利 ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島04R_3歳未勝利_芝1200m.html">04R 3歳未勝利 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島05R_3歳未勝利_芝1800m.html">05R 3歳未勝利 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島06R_4歳以上1勝クラス_芝2000m.html">06R 4歳以上1勝クラス 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島07R_4歳以上1勝クラス_ダ1700m.html">07R 4歳以上1勝クラス ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島08R_4歳以上1勝クラス_芝1200m.html">08R 4歳以上1勝クラス 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島09R_燧ヶ岳特別_芝2600m.html">09R 燧ヶ岳特別 芝2600m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島10R_喜多方特別_ダ1150m.html">10R 喜多方特別 ダ1150m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島11R_福島民報杯_芝2000m.html">11R 福島民報杯 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260412_福島12R_4歳以上1勝クラス_ダ1700m.html">12R 4歳以上1勝クラス ダ1700m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/04/11（35R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=9.0 芝12.9% ダ12.0%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260411_中山01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山02R_3歳未勝利_ダ1200m.html">02R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山03R_3歳未勝利_ダ1800m.html">03R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山05R_3歳未勝利_芝1600m.html">05R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山06R_3歳未勝利_芝2000m.html">06R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山07R_3歳1勝クラス_ダ1200m.html">07R 3歳1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山08R_4歳以上1勝クラス_ダ1800m.html">08R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山09R_山藤賞_芝2000m.html">09R 山藤賞 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山10R_卯月S_ダ1200m.html">10R 卯月S ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山11R_NZT_芝1600m.html">11R NZT 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260411_中山12R_4歳以上2勝クラス_ダ1200m.html">12R 4歳以上2勝クラス ダ1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=8.6 芝12.8% ダ14.5%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260411_阪神01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神02R_3歳未勝利_ダ1400m.html">02R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神03R_3歳未勝利_ダ1800m.html">03R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神04R_3歳未勝利_芝2000m.html">04R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神05R_3歳1勝クラス_ダ1800m.html">05R 3歳1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神06R_3歳1勝クラス_芝1200m.html">06R 3歳1勝クラス 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神07R_4歳以上1勝クラス_ダ1800m.html">07R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神08R_4歳以上1勝クラス_ダ1400m.html">08R 4歳以上1勝クラス ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神09R_明石特別_芝2400m.html">09R 明石特別 芝2400m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神10R_大―ハンC_芝2600m.html">10R 大―ハンC 芝2600m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神11R_阪神牝馬S_芝1600m.html">11R 阪神牝馬S 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260411_阪神12R_4歳以上2勝クラス_ダ1200m.html">12R 4歳以上2勝クラス ダ1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">福島<span class="venue-info">CV=9.5 芝9.8% ダ4.3%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260411_福島01R_3歳未勝利_ダ1700m.html">01R 3歳未勝利 ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島02R_3歳未勝利_芝1200m.html">02R 3歳未勝利 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島03R_3歳未勝利_芝1800m.html">03R 3歳未勝利 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島04R_3歳未勝利_ダ1150m.html">04R 3歳未勝利 ダ1150m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島05R_3歳未勝利_芝2000m.html">05R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島06R_3歳未勝利_芝2600m.html">06R 3歳未勝利 芝2600m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島07R_4歳以上1勝クラス_ダ1700m.html">07R 4歳以上1勝クラス ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島08R_4歳以上1勝クラス_ダ1150m.html">08R 4歳以上1勝クラス ダ1150m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島09R_浄土平特別_芝1800m.html">09R 浄土平特別 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島10R_花見山特別_芝1200m.html">10R 花見山特別 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島11R_吾妻小富士S_ダ1700m.html">11R 吾妻小富士S ダ1700m<span class="arrow">→</span></a>
-<a href="scatter_20260411_福島12R_4歳以上1勝クラス_芝1200m.html">12R 4歳以上1勝クラス 芝1200m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/04/05（41R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=7.9 芝13.7% ダ13.5%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260405_中山01R_1R3歳未勝利ダ1800m16頭_ダ1800m.html">01R 1R3歳未勝利ダ1800m16頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山02R_2R3歳未勝利ダ1200m8頭_ダ1200m.html">02R 2R3歳未勝利ダ1200m8頭 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山02R_3歳未勝利_ダ1200m.html">02R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山03R_3R3歳未勝利ダ1800m7頭_ダ1800m.html">03R 3R3歳未勝利ダ1800m7頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山03R_3歳未勝利_ダ1800m.html">03R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山04R_4R4歳以上障害未勝利ダ2880m14頭_ダ2880m.html">04R 4R4歳以上障害未勝利ダ2880m14頭 ダ2880m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山04R_4歳以上障害未勝利_ダ2880m.html">04R 4歳以上障害未勝利 ダ2880m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山05R_3歳未勝利_芝2000m.html">05R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山05R_5R3歳未勝利芝2000m14頭_芝2000m.html">05R 5R3歳未勝利芝2000m14頭 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山06R_3歳1勝クラス_ダ1800m.html">06R 3歳1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山06R_6R3歳1勝クラスダ1800m18頭_ダ1800m.html">06R 6R3歳1勝クラスダ1800m18頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山07R_3歳1勝クラス_芝1200m.html">07R 3歳1勝クラス 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山07R_7R3歳1勝クラス芝1200m15頭_芝1200m.html">07R 7R3歳1勝クラス芝1200m15頭 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山08R_4歳以上1勝クラス_ダ1200m.html">08R 4歳以上1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山08R_8R4歳以上1勝クラスダ1200m13頭_ダ1200m.html">08R 8R4歳以上1勝クラスダ1200m13頭 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山09R_安房特別_芝2500m.html">09R 安房特別 芝2500m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山10R_アリエスS_ダ1800m.html">10R アリエスS ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山11R_美浦S_芝2000m.html">11R 美浦S 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山12R_12R4歳以上2勝クラス芝1600m10頭_芝1600m.html">12R 12R4歳以上2勝クラス芝1600m10頭 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260405_中山12R_4歳以上2勝クラス_芝1600m.html">12R 4歳以上2勝クラス 芝1600m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=8.5 芝13.2% ダ16.0%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260405_阪神01R_1R3歳未勝利ダ1400m27頭_ダ1400m.html">01R 1R3歳未勝利ダ1400m27頭 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神01R_3歳未勝利_ダ1400m.html">01R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神02R_2R3歳未勝利ダ1800m7頭_ダ1800m.html">02R 2R3歳未勝利ダ1800m7頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神03R_3R3歳未勝利ダ1200m13頭_ダ1200m.html">03R 3R3歳未勝利ダ1200m13頭 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神04R_3歳未勝利_芝2400m.html">04R 3歳未勝利 芝2400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神04R_4R3歳未勝利芝2400m14頭_芝2400m.html">04R 4R3歳未勝利芝2400m14頭 芝2400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神05R_3歳1勝クラス_ダ1800m.html">05R 3歳1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神05R_5R3歳1勝クラスダ1800m15頭_ダ1800m.html">05R 5R3歳1勝クラスダ1800m15頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神06R_4歳以上1勝クラス_芝2000m.html">06R 4歳以上1勝クラス 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神06R_6R4歳以上1勝クラス芝2000m4頭_芝2000m.html">06R 6R4歳以上1勝クラス芝2000m4頭 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神07R_4歳以上2勝クラス_ダ1800m.html">07R 4歳以上2勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神07R_7R4歳以上2勝クラスダ1800m15頭_ダ1800m.html">07R 7R4歳以上2勝クラスダ1800m15頭 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神08R_4歳以上2勝クラス_芝1800m.html">08R 4歳以上2勝クラス 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神08R_8R4歳以上2勝クラス芝1800m10頭_芝1800m.html">08R 8R4歳以上2勝クラス芝1800m10頭 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神09R_バイオレット_ダ1400m.html">09R バイオレット ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神10R_心斎橋S_芝1400m.html">10R 心斎橋S 芝1400m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神11R_大阪杯_芝2000m.html">11R 大阪杯 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260405_阪神12R_天満橋S_ダ1400m.html">12R 天満橋S ダ1400m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/04/04（24R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=9.2 芝13.0% ダ8.7%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260404_中山01R_3歳未勝利_ダ1200m.html">01R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山04R_4歳以上障害未勝利_ダ2880m.html">04R 4歳以上障害未勝利 ダ2880m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山05R_3歳未勝利_芝1600m.html">05R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山06R_3歳未勝利_ダ1800m.html">06R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山07R_4歳以上1勝クラス_芝2000m.html">07R 4歳以上1勝クラス 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山08R_4歳以上1勝クラス_ダ1800m.html">08R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山09R_山吹賞_芝2200m.html">09R 山吹賞 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山10R_千葉日報杯_ダ1800m.html">10R 千葉日報杯 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山11R_ダービーCT_芝1600m.html">11R ダービーCT 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260404_中山12R_4歳以上2勝クラス_ダ1200m.html">12R 4歳以上2勝クラス ダ1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=9.2 芝12.0% ダ7.7%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260404_阪神01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神02R_3歳未勝利_ダ1400m.html">02R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神03R_3歳未勝利_ダ1800m.html">03R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神04R_3歳未勝利_芝1400m.html">04R 3歳未勝利 芝1400m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神05R_3歳未勝利_芝1800m.html">05R 3歳未勝利 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神06R_4歳以上1勝クラス_ダ1200m.html">06R 4歳以上1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神07R_4歳以上1勝クラス_ダ1800m.html">07R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神08R_4歳以上2勝クラス_芝1200m.html">08R 4歳以上2勝クラス 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神09R_アザレア賞_芝2400m.html">09R アザレア賞 芝2400m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神10R_ポラリスS_ダ1400m.html">10R ポラリスS ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神11R_チャーチルC_芝1600m.html">11R チャーチルC 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260404_阪神12R_4歳以上2勝クラス_ダ1400m.html">12R 4歳以上2勝クラス ダ1400m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/03/29（35R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=9.4 芝13.8% ダ10.8%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260329_中山01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山02R_3歳未勝利_ダ1200m.html">02R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山03R_3歳未勝利_ダ1800m.html">03R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山04R_3歳未勝利_芝1800m.html">04R 3歳未勝利 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山05R_3歳未勝利_芝2200m.html">05R 3歳未勝利 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山06R_3歳1勝クラス_ダ1200m.html">06R 3歳1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山07R_4歳以上1勝クラス_ダ1800m.html">07R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山08R_4歳以上1勝クラス_ダ1200m.html">08R 4歳以上1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山09R_ミモザ賞_芝2000m.html">09R ミモザ賞 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山10R_船橋S_芝1200m.html">10R 船橋S 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山11R_マーチS_ダ1800m.html">11R マーチS ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中山12R_4歳以上2勝クラス_芝1200m.html">12R 4歳以上2勝クラス 芝1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=9.3 芝12.1% ダ6.6%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260329_阪神01R_3歳未勝利_ダ1800m.html">01R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神02R_3歳未勝利_ダ2000m.html">02R 3歳未勝利 ダ2000m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神03R_3歳未勝利_ダ1400m.html">03R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神05R_3歳未勝利_芝2000m.html">05R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神06R_3歳1勝クラス_ダ1200m.html">06R 3歳1勝クラス ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神07R_4歳以上1勝クラス_芝1400m.html">07R 4歳以上1勝クラス 芝1400m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神08R_四国新聞杯_芝2000m.html">08R 四国新聞杯 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神09R_4歳以上1勝クラス_ダ1800m.html">09R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神10R_御堂筋S_芝2400m.html">10R 御堂筋S 芝2400m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神11R_六甲S_芝1600m.html">11R 六甲S 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260329_阪神12R_4歳以上2勝クラス_ダ1200m.html">12R 4歳以上2勝クラス ダ1200m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中京<span class="venue-info">CV=10.4 芝12.3% ダ4.9%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260329_中京01R_3歳未勝利_ダ1400m.html">01R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京02R_3歳未勝利_ダ1900m.html">02R 3歳未勝利 ダ1900m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京04R_3歳未勝利_芝1200m.html">04R 3歳未勝利 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京05R_3歳未勝利_芝2000m.html">05R 3歳未勝利 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京06R_4歳以上1勝クラス_芝2200m.html">06R 4歳以上1勝クラス 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京07R_4歳以上1勝クラス_ダ1800m.html">07R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京08R_大寒桜賞_芝2200m.html">08R 大寒桜賞 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京09R_4歳以上1勝クラス_芝1600m.html">09R 4歳以上1勝クラス 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京10R_伊勢S_ダ1900m.html">10R 伊勢S ダ1900m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京11R_高松宮記念_芝1200m.html">11R 高松宮記念 芝1200m<span class="arrow">→</span></a>
-<a href="scatter_20260329_中京12R_鈴鹿特別_ダ1400m.html">12R 鈴鹿特別 ダ1400m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<div class="date-section"><div class="date-header" onclick="toggleDate(this)">2026/03/28（35R）<span class="toggle">▼</span></div>
-<div class="race-list">
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中山<span class="venue-info">CV=9.1 芝14.4% ダ13.2%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260328_中山01R_3歳未勝利_ダ1200m.html">01R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山04R_3歳未勝利_ダ1800m.html">04R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山05R_3歳未勝利_芝1600m.html">05R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山06R_3歳1勝クラス_芝1800m.html">06R 3歳1勝クラス 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山07R_4歳以上1勝クラス_ダ1800m.html">07R 4歳以上1勝クラス ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山08R_4歳以上2勝クラス_芝2000m.html">08R 4歳以上2勝クラス 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山09R_ブラッドスト_ダ1200m.html">09R ブラッドスト ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山10R_伏竜S_ダ1800m.html">10R 伏竜S ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山11R_日経賞_芝2500m.html">11R 日経賞 芝2500m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中山12R_4歳以上2勝クラス_ダ1800m.html">12R 4歳以上2勝クラス ダ1800m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">阪神<span class="venue-info">CV=9.0 芝11.3% ダ9.0%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260328_阪神01R_3歳未勝利_ダ1200m.html">01R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神03R_3歳未勝利_ダ1200m.html">03R 3歳未勝利 ダ1200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神04R_3歳未勝利_ダ1800m.html">04R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神05R_3歳未勝利_芝1600m.html">05R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神06R_3歳1勝クラス_芝1400m.html">06R 3歳1勝クラス 芝1400m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神07R_4歳以上1勝クラス_ダ1400m.html">07R 4歳以上1勝クラス ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神09R_君子蘭賞_芝1800m.html">09R 君子蘭賞 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神10R_仲春特別_芝1400m.html">10R 仲春特別 芝1400m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神11R_毎日杯_芝1800m.html">11R 毎日杯 芝1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_阪神12R_4歳以上2勝クラス_ダ2000m.html">12R 4歳以上2勝クラス ダ2000m<span class="arrow">→</span></a>
-</div></div>
-<div class="venue-section"><div class="venue-header" onclick="toggleVenue(this)">中京<span class="venue-info">CV=9.8 芝13.7% ダ9.9%</span><span class="toggle">▼</span></div>
-<div class="venue-races">
-<a href="scatter_20260328_中京01R_3歳未勝利_ダ1400m.html">01R 3歳未勝利 ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京02R_3歳未勝利_ダ1800m.html">02R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京03R_3歳未勝利_芝1600m.html">03R 3歳未勝利 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京04R_3歳未勝利_ダ1800m.html">04R 3歳未勝利 ダ1800m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京05R_3歳未勝利_芝2200m.html">05R 3歳未勝利 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京06R_4歳以上1勝クラス_ダ1400m.html">06R 4歳以上1勝クラス ダ1400m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京07R_4歳以上1勝クラス_芝1600m.html">07R 4歳以上1勝クラス 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京08R_4歳以上1勝クラス_芝2000m.html">08R 4歳以上1勝クラス 芝2000m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京09R_ロイヤルBS_ダ1900m.html">09R ロイヤルBS ダ1900m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京10R_TAインディ_芝2200m.html">10R TAインディ 芝2200m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京11R_マレーシアC_芝1600m.html">11R マレーシアC 芝1600m<span class="arrow">→</span></a>
-<a href="scatter_20260328_中京12R_フィリピンT_芝1400m.html">12R フィリピンT 芝1400m<span class="arrow">→</span></a>
-</div></div>
-</div></div>
-<script>
-function toggleDate(el){
-  el.classList.toggle('open');
-  el.nextElementSibling.classList.toggle('open');
-}
-function toggleVenue(el){
-  el.classList.toggle('open');
-  el.nextElementSibling.classList.toggle('open');
-}
-</script>
+<h1>04/12 クッション値×含水率</h1>
+<div class="sub">散布図一覧 ─ タップで各レースの散布図を表示</div>
+<div class="venue"><h2>中山　CV=9.3 芝12.0% ダ7.9%</h2>
+<a href="scatter_20260412_中山01R_3歳未勝利_ダ1200m.html">1R 3歳未勝利 ダ1200m <span class="meta">15頭 55pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山02R_3歳未勝利_ダ1800m.html">2R 3歳未勝利 ダ1800m <span class="meta">15頭 46pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山03R_3歳未勝利_ダ1200m.html">3R 3歳未勝利 ダ1200m <span class="meta">14頭 32pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山05R_3歳未勝利_芝2200m.html">5R 3歳未勝利 芝2200m <span class="meta">18頭 58pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山06R_3歳1勝クラス_ダ1800m.html">6R 3歳1勝クラス ダ1800m <span class="meta">11頭 53pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山07R_4歳以上1勝クラス_芝1600m.html">7R 4歳以上1勝クラス 芝1600m <span class="meta">15頭 125pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山08R_4歳以上2勝クラス_芝1800m.html">8R 4歳以上2勝クラス 芝1800m <span class="meta">10頭 90pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山09R_印西特別_ダ2400m.html">9R 印西特別 ダ2400m <span class="meta">12頭 101pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山10R_あけぼのS_芝1600m.html">10R あけぼのS 芝1600m <span class="meta">12頭 107pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山11R_春雷S_芝1200m.html">11R 春雷S 芝1200m <span class="meta">16頭 137pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_中山12R_4歳以上1勝クラス_ダ1200m.html">12R 4歳以上1勝クラス ダ1200m <span class="meta">13頭 106pts</span><span class="arrow">→</span></a>
+</div>
+<div class="venue"><h2>阪神　CV=8.9 芝12.1% ダ10.5%</h2>
+<a href="scatter_20260412_阪神01R_3歳未勝利_ダ1400m.html">1R 3歳未勝利 ダ1400m <span class="meta">16頭 34pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神02R_3歳未勝利_ダ1800m.html">2R 3歳未勝利 ダ1800m <span class="meta">16頭 41pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神03R_3歳未勝利_ダ1200m.html">3R 3歳未勝利 ダ1200m <span class="meta">16頭 44pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神04R_3歳未勝利_芝1600m.html">4R 3歳未勝利 芝1600m <span class="meta">18頭 19pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神05R_3歳1勝クラス_ダ1400m.html">5R 3歳1勝クラス ダ1400m <span class="meta">16頭 85pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神06R_4歳以上1勝クラス_ダ1800m.html">6R 4歳以上1勝クラス ダ1800m <span class="meta">10頭 83pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神07R_4歳以上2勝クラス_芝1600m.html">7R 4歳以上2勝クラス 芝1600m <span class="meta">11頭 89pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神08R_川西特別_ダ1800m.html">8R 川西特別 ダ1800m <span class="meta">11頭 95pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神09R_忘れな草賞_芝2000m.html">9R 忘れな草賞 芝2000m <span class="meta">14頭 43pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神10R_京橋S_芝2000m.html">10R 京橋S 芝2000m <span class="meta">15頭 133pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神11R_桜花賞_芝1600m.html">11R 桜花賞 芝1600m <span class="meta">18頭 77pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_阪神12R_梅田S_ダ2000m.html">12R 梅田S ダ2000m <span class="meta">13頭 115pts</span><span class="arrow">→</span></a>
+</div>
+<div class="venue"><h2>福島　CV=9.5 芝10.6% ダ2.4%</h2>
+<a href="scatter_20260412_福島01R_3歳未勝利_ダ1700m.html">1R 3歳未勝利 ダ1700m <span class="meta">15頭 49pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島02R_3歳未勝利_芝1200m.html">2R 3歳未勝利 芝1200m <span class="meta">16頭 27pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島03R_3歳未勝利_ダ1700m.html">3R 3歳未勝利 ダ1700m <span class="meta">15頭 39pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島04R_3歳未勝利_芝1200m.html">4R 3歳未勝利 芝1200m <span class="meta">16頭 26pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島05R_3歳未勝利_芝1800m.html">5R 3歳未勝利 芝1800m <span class="meta">16頭 36pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島06R_4歳以上1勝クラス_芝2000m.html">6R 4歳以上1勝クラス 芝2000m <span class="meta">15頭 116pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島07R_4歳以上1勝クラス_ダ1700m.html">7R 4歳以上1勝クラス ダ1700m <span class="meta">15頭 98pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島08R_4歳以上1勝クラス_芝1200m.html">8R 4歳以上1勝クラス 芝1200m <span class="meta">16頭 121pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島09R_燧ヶ岳特別_芝2600m.html">9R 燧ヶ岳特別 芝2600m <span class="meta">13頭 105pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島10R_喜多方特別_ダ1150m.html">10R 喜多方特別 ダ1150m <span class="meta">16頭 138pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島11R_福島民報杯_芝2000m.html">11R 福島民報杯 芝2000m <span class="meta">15頭 134pts</span><span class="arrow">→</span></a>
+<a href="scatter_20260412_福島12R_4歳以上1勝クラス_ダ1700m.html">12R 4歳以上1勝クラス ダ1700m <span class="meta">15頭 112pts</span><span class="arrow">→</span></a>
+</div>
 </body></html>
